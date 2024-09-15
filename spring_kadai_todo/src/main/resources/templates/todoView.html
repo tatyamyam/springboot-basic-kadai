@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html xmlns:th="https://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>ToDoリスト</title>
+</head>
+<body>
+    <h2>ToDoリスト</h2>
+    <br>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>タイトル</th>
+                <th>優先度</th>
+                <th>ステータス</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr th:each="todo : ${todos}">
+                <td th:text="${todo.getId()}"></td>
+                <td th:text="${todo.getTitle()}"></td>
+                <!-- Enumから日本語のラベルを表示 -->
+                <td th:text="${todo.getPriorityEnum().getLabel()}"></td>
+                <td th:text="${todo.getStatusEnum().getLabel()}"></td>
+            </tr>
+        </tbody>
+    </table>
+</body>
+</html>
